@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scott Cardone / projects</title>
+<meta name="description" content="Personal projects by Scott Cardone.">
+<style>
+:root{
+  --bg:#fbfaf7; --panel:#fff; --line:#e2ddd2; --text:#1d1b17; --dim:#6b655b; --accent:#9a6b1f;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#1b1a17; --panel:#232220; --line:#3a3833; --text:#e8e2d4; --dim:#9d968a; --accent:#e0b25e; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:16px/1.6 ui-sans-serif,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;margin:0 auto;padding:14vh 24px 12vh}
+h1{font-size:1.35rem;margin:0 0 .2rem;letter-spacing:-.01em}
+.sub{color:var(--dim);margin:0 0 3rem}
+h2{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:var(--dim);
+  font-weight:600;margin:0 0 1rem}
+.card{display:block;text-decoration:none;color:inherit;background:var(--panel);
+  border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:12px;
+  transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{margin:0 0 .3rem;font-size:1rem}
+.card p{margin:0;color:var(--dim);font-size:.9rem}
+.card .meta{margin-top:.6rem;font-size:.78rem;color:var(--accent);letter-spacing:.02em}
+footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--line);
+  color:var(--dim);font-size:.85rem}
+footer a{color:var(--dim)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Scott Cardone</h1>
+  <p class="sub">Personal projects. Mostly small tools that scratch an itch.</p>
+
+  <h2>Projects</h2>
+
+  <a class="card" href="/clue-reroll-advisor/">
+    <h3>Clue Re-roll Advisor</h3>
+    <p>An Alt1 app for RuneScape 3. It reads the Trail Complete! window off the screen and
+       works out whether the casket is worth spending a re-roll token on, using the value
+       distribution for that clue tier rather than a rule of thumb.</p>
+    <div class="meta">Alt1 app &middot; JavaScript</div>
+  </a>
+
+  <footer>
+    Source for everything here lives on
+    <a href="https://github.com/mscardone">GitHub</a>.
+  </footer>
+</div>
+</body>
+</html>
