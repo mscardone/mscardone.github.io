@@ -28,6 +28,11 @@ h2{font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;color:var(--di
 .card h3{margin:0 0 .3rem;font-size:1rem}
 .card p{margin:0;color:var(--dim);font-size:.9rem}
 .card .meta{margin-top:.6rem;font-size:.78rem;color:var(--accent);letter-spacing:.02em}
+.card .meta{position:relative}
+.pwa{position:relative;display:inline-block;border:1px solid var(--accent);border-radius:999px;padding:0 .45em;font-weight:700;cursor:help;line-height:1.5}
+.pwa .tip{display:none;position:absolute;left:0;bottom:calc(100% + 8px);z-index:5;width:min(320px,80vw);background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:.8rem;line-height:1.45;font-weight:400;letter-spacing:0;box-shadow:0 6px 24px rgba(0,0,0,.18);white-space:normal;cursor:default}
+.pwa .tip b{color:var(--accent)}
+.pwa:hover .tip,.pwa:focus .tip,.pwa.open .tip{display:block}
 .install{margin:-6px 2px 20px;padding-left:20px;font-size:.82rem}
 .install a{color:var(--accent);text-decoration:none;border-bottom:1px dotted var(--accent);font-weight:600}
 .install a:hover{border-bottom-style:solid}
@@ -69,7 +74,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
        starts and shows how it travels through the heart, with pause and slow motion for
        talking it through. Plain-language notes on symptoms, risk factors and treatment sit
        below the animation, and Shock and Adenosine buttons show what the treatments do.</p>
-    <div class="meta">Web app &middot; JavaScript</div>
+    <div class="meta">Web app &middot; <span class="pwa" tabindex="0" role="button" aria-label="Installable web app. Show install instructions">PWA<span class="tip" role="tooltip">Installable web app. It works offline and opens full screen from your home screen.<br><b>iPhone / iPad:</b> open it in Safari, tap Share, then Add to Home Screen.<br><b>Android:</b> open it in Chrome, tap the &#8942; menu, then Install app or Add to Home screen.<br><b>Desktop:</b> in Chrome or Edge, click the install icon at the right end of the address bar.</span></span> &middot; JavaScript</div>
   </a>
 
   <a class="card" href="/cribsheet/">
@@ -79,9 +84,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
        circumference. Totals for today, the last 24 hours and a 7-day daily average, a growth
        chart, and CSV export for the pediatrician. Both parents can share one log across their
        phones, and it works offline. No insights, no ads, no subscription.</p>
-    <div class="meta">Web app &middot; PWA &middot; JavaScript</div>
+    <div class="meta">Web app &middot; <span class="pwa" tabindex="0" role="button" aria-label="Installable web app. Show install instructions">PWA<span class="tip" role="tooltip">Installable web app. It works offline and opens full screen from your home screen.<br><b>iPhone / iPad:</b> open it in Safari, tap Share, then Add to Home Screen.<br><b>Android:</b> open it in Chrome, tap the &#8942; menu, then Install app or Add to Home screen.<br><b>Desktop:</b> in Chrome or Edge, click the install icon at the right end of the address bar.</span></span> &middot; JavaScript</div>
   </a>
-  <div class="install"><a href="https://projects.scottcardone.com/cribsheet/">Install on your phone</a><span class="hint">open the link, then Share &rarr; Add to Home Screen (iPhone) or &#8942; &rarr; Add to Home screen (Android)</span></div>
 
   <a class="card" href="/optometry-visualizer/">
     <h3>Optometry Visualizer</h3>
@@ -90,7 +94,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
        a Snellen chart drawn at true angular sizes, a landscape, or your own photo, with a
        draggable corrected/uncorrected split. Built to understand a toddler's astigmatism
        script; the blur is real geometric optics rendered in WebGL, not a stock filter.</p>
-    <div class="meta">Web app &middot; JavaScript</div>
+    <div class="meta">Web app &middot; <span class="pwa" tabindex="0" role="button" aria-label="Installable web app. Show install instructions">PWA<span class="tip" role="tooltip">Installable web app. It works offline and opens full screen from your home screen.<br><b>iPhone / iPad:</b> open it in Safari, tap Share, then Add to Home Screen.<br><b>Android:</b> open it in Chrome, tap the &#8942; menu, then Install app or Add to Home screen.<br><b>Desktop:</b> in Chrome or Edge, click the install icon at the right end of the address bar.</span></span> &middot; JavaScript</div>
   </a>
   </details>
 
@@ -168,5 +172,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius
     <a href="https://github.com/mscardone">GitHub</a>.
   </footer>
 </div>
+<script>
+document.querySelectorAll('.pwa').forEach(function(b){
+  b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();document.querySelectorAll('.pwa.open').forEach(function(o){if(o!==b)o.classList.remove('open')});b.classList.toggle('open')});
+  b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();b.classList.toggle('open')}});
+});
+document.addEventListener('click',function(){document.querySelectorAll('.pwa.open').forEach(function(o){o.classList.remove('open')})});
+</script>
 </body>
 </html>
